@@ -1,14 +1,18 @@
 <?php
 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
-//nama tabel,fieldid,varcari,fieldhasil
+
 include 'koneksi.php';
 
+//FUNGSI TEMPEL nama tabel,fieldid,varcari,fieldhasil --> TAMPIL KE DISPLAY 
 function tempel($tabel, $idtabel, $idcari, $hasilcari) {
     $res_cari = mysql_query("SELECT * FROM $tabel WHERE $idtabel=$idcari");
     if ($row_cari = mysql_fetch_array($res_cari)) {
         print $row_cari[$hasilcari];
     }
 }
+
+//FUNGSI AMBIL nama tabel,fieldid,varcari,fieldhasil --> HANYA BERUPA NILAI UNTUK MENAMPILKAN 
+//HARUS DI ECHO LAGI 
 
 function ambil($tabel, $idtabel, $idcari, $hasilcari) {
     $res_cari = mysql_query("SELECT * FROM $tabel WHERE $idtabel=$idcari");
